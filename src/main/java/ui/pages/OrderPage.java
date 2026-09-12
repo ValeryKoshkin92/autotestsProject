@@ -1,5 +1,6 @@
-package pages;
+package ui.pages;
 
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -109,7 +110,7 @@ public class OrderPage {
     //Проверяем окно успеха
     public void checkSuccessWindow() {
         boolean isDisplayed = webDriver.findElement(successPopupHeader).isDisplayed();
-        assertTrue(isDisplayed);
+        Assertions.assertTrue(isDisplayed);
     }
 
     //Клик по лого самоката
@@ -124,9 +125,9 @@ public class OrderPage {
         boolean isAddress = webDriver.findElement(addressError).isDisplayed();
         boolean isPhone = webDriver.findElement(phoneError).isDisplayed();
 
-        assertTrue(isFirstName);
-        assertTrue(isLastName);
-        assertTrue(isAddress);
-        assertTrue(isPhone);
+        Assertions.assertTrue(isFirstName);
+        Assertions.assertTrue(isLastName);
+        Assertions.assertTrue(isAddress);
+        Assertions.assertTrue(isPhone);
     }
 }

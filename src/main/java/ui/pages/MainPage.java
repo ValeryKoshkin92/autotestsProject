@@ -1,4 +1,4 @@
-package pages;
+package ui.pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-import static config.AppConfig.APP_MAIN_PAGE_URL;
+import static ui.config.AppConfig.APP_MAIN_PAGE_URL;
 
 public class MainPage {
 

@@ -1,5 +1,6 @@
-package pages;
+package ui.pages;
 
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -16,6 +17,6 @@ public class OrderStatusPage {
 
     public void checknotFoundContainer() {
         boolean isDisplayed = webDriver.findElement(notFoundContainer).isDisplayed();
-        assertTrue(isDisplayed);
+        Assertions.assertTrue(isDisplayed);
     }
 }
