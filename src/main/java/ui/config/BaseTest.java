@@ -1,11 +1,11 @@
-package config;
+package ui.config;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 
-import static config.AppConfig.APP_MAIN_PAGE_URL;
+import static ui.config.AppConfig.APP_MAIN_PAGE_URL;
 
 public class BaseTest {
     public static WebDriver webDriver;

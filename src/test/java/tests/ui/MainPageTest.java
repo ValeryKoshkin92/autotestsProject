@@ -1,10 +1,10 @@
-package tests;
+package tests.ui;
 
-import config.BaseTest;
+import ui.config.BaseTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.MainPage;
+import ui.pages.MainPage;
 
 import static java.time.Duration.ofSeconds;
 import static org.openqa.selenium.support.ui.ExpectedConditions.numberOfWindowsToBe;

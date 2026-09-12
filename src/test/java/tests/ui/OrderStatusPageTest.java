@@ -1,9 +1,9 @@
-package tests;
+package tests.ui;
 
-import config.BaseTest;
+import ui.config.BaseTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pages.MainPage;
+import ui.pages.MainPage;
 
 @DisplayName("Создание заказа")
 public class OrderStatusPageTest extends BaseTest {
