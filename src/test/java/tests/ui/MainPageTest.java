@@ -10,7 +10,7 @@ import static java.time.Duration.ofSeconds;
 import static org.openqa.selenium.support.ui.ExpectedConditions.numberOfWindowsToBe;
 import static org.openqa.selenium.support.ui.ExpectedConditions.urlToBe;
 
-@DisplayName("Тест сьют")
+@DisplayName("Проверки главной страницы")
 public class MainPageTest extends BaseTest {
     String yandexURL = "https://dzen.ru/?yredirect=true";
     String orderButton = "orderButtonTop";

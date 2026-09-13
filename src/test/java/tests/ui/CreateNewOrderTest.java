@@ -13,6 +13,7 @@ import static java.time.LocalDate.now;
 import static java.time.format.DateTimeFormatter.ofPattern;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
+@DisplayName("Проверки создания нового заказа")
 public class CreateNewOrderTest extends BaseTest {
 
     static Stream<Arguments> getTestData() {

@@ -1,4 +1,4 @@
-package api;
+package api.courier;
 
 public class Credentials {
 
@@ -17,11 +17,11 @@ public class Credentials {
         this.password = password;
     }
 
-    public static Credentials from(Courier courier) {
-        Credentials c = new Credentials();
-        c.setLogin(courier.getLogin());
-        c.setPassword(courier.getPassword());
-        return c;
+    public static Credentials getCourierCreds(Courier courier) {
+        Credentials credentials = new Credentials();
+        credentials.setLogin(courier.getLogin());
+        credentials.setPassword(courier.getPassword());
+        return credentials;
     }
 
     public String getLogin() {
