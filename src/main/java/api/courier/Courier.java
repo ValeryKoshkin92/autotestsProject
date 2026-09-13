@@ -1,4 +1,4 @@
-package api;
+package api.courier;
 
 public class Courier {
     private String login;

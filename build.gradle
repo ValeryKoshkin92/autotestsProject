@@ -36,6 +36,8 @@ dependencies {
     implementation("io.github.bonigarcia:webdrivermanager:6.3.4")
     implementation 'io.rest-assured:rest-assured:6.0.1'
     implementation 'com.google.code.gson:gson:2.14.0'
+    implementation 'io.qameta.allure:allure-rest-assured:2.29.0'
+    implementation("org.aspectj:aspectjweaver:1.9.25.1")
 
     // Allure зависимости - только основные
     implementation "io.qameta.allure:allure-junit5:2.35.2"

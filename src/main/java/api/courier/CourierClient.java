@@ -1,12 +1,15 @@
-package api;
+package api.courier;
 
+import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
 
 public class CourierClient {
+    //вынести ручки в отдельный класс
     private final String COURIER_API = "api/v1/courier";
 
+    @Step("Отправили запрос на создание курьера")
     public ValidatableResponse createCourier(Courier courier) {
         return given().log().all()
                 .contentType(JSON)
@@ -17,6 +20,7 @@ public class CourierClient {
                 .then().log().all();
     }
 
+    @Step("Отправили запрос на логин курьера")
     public ValidatableResponse logIn(Credentials creds) {
         return given().log().all()
                 .contentType(JSON)

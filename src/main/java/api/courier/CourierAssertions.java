@@ -1,5 +1,6 @@
-package api;
+package api.courier;
 
+import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 
 import static java.net.HttpURLConnection.*;
@@ -8,13 +9,15 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 
 public class CourierAssertions {
 
-    public void createdSuccessfully(ValidatableResponse response) {
+    @Step("Проверяем успешное создание курьера")
+    public void checkCreatedSuccessfully(ValidatableResponse response) {
         response
                 .assertThat()
                 .statusCode(HTTP_CREATED)
                 .body("ok", equalTo(true));
     }
 
+    @Step("Проверяем успешный логин курьера")
     public String loggedInSuccessfully(ValidatableResponse response) {
         return response
                 .assertThat()
@@ -24,6 +27,7 @@ public class CourierAssertions {
                 .path("id").toString();
     }
 
+    @Step("Проверяем, что повторное создание не прошло")
     public void createdUnsuccesfullyDouble(ValidatableResponse response) {
         response
                 .assertThat()
@@ -33,6 +37,7 @@ public class CourierAssertions {
                 .path("message");
     }
 
+    @Step("Проверяем, не хватает пароля")
     public void createdUnsuccesfullyPassword(ValidatableResponse response) {
         response
                 .assertThat()
@@ -42,6 +47,7 @@ public class CourierAssertions {
                 .path("message");
     }
 
+    @Step("Проверяем неуспешный логин")
     public void loggedInUnsuccessfully(ValidatableResponse response) {
         response
                 .assertThat()
@@ -49,6 +55,7 @@ public class CourierAssertions {
                 .body("message", equalTo("Недостаточно данных для входа"));
     }
 
+    @Step("Проверяем что пользователь не найден")
     public void loggedInUnsuccesfullyUserNotExist(ValidatableResponse response) {
         response
                 .assertThat()

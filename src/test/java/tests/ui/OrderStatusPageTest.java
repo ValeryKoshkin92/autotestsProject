@@ -5,7 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ui.pages.MainPage;
 
-@DisplayName("Создание заказа")
+@DisplayName("Проверки страницы статуса заказа")
 public class OrderStatusPageTest extends BaseTest {
 
     String nonexistentOrder = "1234";
