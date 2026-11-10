@@ -37,4 +37,12 @@ public class CourierClient {
                 .delete(COURIER_API + "/" + id)
                 .then().log().all();
     }
+
+    public ValidatableResponse deleteCourierWithoutId() {
+        return given().log().all()
+                .contentType(JSON)
+                .when()
+                .delete(COURIER_API + "/")
+                .then().log().all();
+    }
 }

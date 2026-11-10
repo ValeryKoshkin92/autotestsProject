@@ -62,4 +62,20 @@ public class CourierAssertions {
                 .statusCode(HTTP_NOT_FOUND)
                 .body("message", equalTo("Учетная запись не найдена"));
     }
+
+    @Step("Проверяем ошибку Not Found")
+    public void checkUserNotFound(ValidatableResponse response) {
+        response
+                .assertThat()
+                .statusCode(HTTP_NOT_FOUND)
+                .body("message", equalTo("Not Found."));
+    }
+
+    @Step("Проверяем ошибку Not Found")
+    public void checkUserNotExist(ValidatableResponse response) {
+        response
+                .assertThat()
+                .statusCode(HTTP_NOT_FOUND)
+                .body("message", equalTo("Курьера с таким id нет."));
+    }
 }
