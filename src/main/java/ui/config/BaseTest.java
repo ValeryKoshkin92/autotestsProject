@@ -15,7 +15,7 @@ public class BaseTest {
 
     @BeforeEach
     public void init() {
-        webDriver = WebDriverFactory.getBrowser(EDGE);
+        webDriver = WebDriverFactory.getBrowser(CHROME);
 
         webDriver.get(APP_MAIN_PAGE_URL);
         System.out.println("Current URL for cookie: " + webDriver.getCurrentUrl());
