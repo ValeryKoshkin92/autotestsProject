@@ -9,12 +9,12 @@ on:
 
 permissions:
   contents: write
+  pages: write     # Для развёртывания на Pages
+  id-token: write  # Обязательно для deploy-pages
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
       - uses: actions/checkout@v4
@@ -31,6 +31,7 @@ jobs:
       - name: Run Tests
         run: ./gradlew build
 
+      # 1. Загрузить историю прошлых отчётов (только для чтения, не пушить)
       - name: Load test report history
         uses: actions/checkout@v4
         if: always()
@@ -39,6 +40,7 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
+      # 2. Сгенерировать HTML-отчёт Allure (сохраняем simple-elf)
       - name: Build test report
         uses: simple-elf/allure-report-action@v1.15
         if: always()
@@ -47,14 +49,18 @@ jobs:
           allure_history: allure-history
           allure_results: build/allure-results
 
-      - name: Publish test report
-        uses: peaceiris/actions-gh-pages@v4
+      # 3. Загрузить сгенерированный отчёт как артефакт Pages
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         if: always()
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: allure-history
+          path: allure-history
 
+      # 4. Развернуть на GitHub Pages (официальный механизм, без пуша в gh-pages)
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        if: always()
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
     # If your project does not have the Gradle Wrapper configured, you can use the following configuration to run Gradle with a specified version.
     #
