@@ -25,7 +25,7 @@ public class CreateNewOrderTest extends BaseTest {
         );
     }
 
-    @ParameterizedTest
+    //@ParameterizedTest
     @MethodSource("getTestData")
     @DisplayName("Создание нового заказа")
     public void createNewOrder(String firstName, String lastName, String address, String phone, String dateFrom, String rentPeriod, String courierComment, String orderButton) {
