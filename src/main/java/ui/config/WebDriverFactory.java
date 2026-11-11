@@ -3,6 +3,7 @@ package ui.config;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -11,7 +12,15 @@ public class WebDriverFactory {
         switch (browserName) {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
-                return new ChromeDriver();
+                ChromeOptions options = new ChromeOptions();
+
+                // GitHub Actions выставляет CI=true — признак CI-окружения
+                if ("true".equalsIgnoreCase(System.getenv("CI"))) {
+                    options.addArguments("--headless=new");
+                    options.addArguments("--no-sandbox");
+                    options.addArguments("--disable-dev-shm-usage");
+                }
+                return new ChromeDriver(options);
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
                 return new FirefoxDriver();
